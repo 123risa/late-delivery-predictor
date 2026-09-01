@@ -3,11 +3,7 @@ Late Delivery Risk Predictor
 DataLab Analytics Final Project — Olist Brazilian E-commerce
 Loads the trained XGBoost model + preprocessing bundle and predicts the
 probability that a new order will be delivered late.
-
-DEPLOYMENT LAYOUT (for Streamlit Community Cloud):
-  app.py                          <- this file
-  requirements.txt
-  models/late_delivery_bundle.pkl <- copy of the bundle saved from your notebook
+Run from the same folder as your notebook: streamlit run app.py
 """
 
 import streamlit as st
@@ -22,7 +18,7 @@ st.set_page_config(page_title="Late Delivery Predictor", page_icon="📦", layou
 
 @st.cache_resource
 def load_bundle():
-    return joblib.load("models/late_delivery_bundle.pkl")
+    return joblib.load("../models/late_delivery_bundle.pkl")
 
 
 bundle = load_bundle()
